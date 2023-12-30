@@ -9,9 +9,74 @@ body {
     overflow: hidden;
 }
 
+.menu {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: skyblue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 99;
+}
+
+.menu .menu-score {
+    position: absolute;
+    top: 15%;
+    left: 32%;
+    font-family: cursive;
+    font-size: 20px;
+}
+
+.menu .start-text {
+    position: absolute;
+    top: 75%;
+    font-family: monospace;
+    font-size: 24px;
+    transform: rotate(5deg);
+    
+}
+
+.menu .start-text span {
+    font-family: cursive;
+    background: crimson;
+    padding-inline: 10px;
+    border-radius: 10px;
+}
+
 canvas#canvas {
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 40%;
     translate: -50% -50%;
+    border-radius: 20px;
+}
+
+
+.scores {
+    position: fixed;
+    top: 40%;
+    left: 75%;
+    transform: translateY(-50%);
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    font-family: monospace;
+    font-size: 24px;
+    padding: 20px;
+    border-radius: 10px;
+    background: skyblue;
+    z-index: 9;
+
+}
+
+.scores .score {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-block: 20px;
 }

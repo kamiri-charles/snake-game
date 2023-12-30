@@ -14,6 +14,9 @@ export default class Snake {
         this.length = 1;
     }
 
+    // Love love
+    // Meditation - DJ Tevex
+
     update() {
         this.x += this.velocity.x;
         this.y += this.velocity.y;

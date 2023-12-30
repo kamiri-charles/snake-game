@@ -8,7 +8,30 @@
     <title>Snake Game</title>
 </head>
 <body>
+    <div class="menu" id="menu">
+        <img src="./assets/snake_logo.png" alt="Game logo">
+
+        <div class="menu-score">
+            High-Score: 0
+        </div>
+
+        <div class="start-text">
+            Press <span>SPACE</span> or <span>ENTER</span> to start!
+        </div>
+
+    </div>
     <canvas id="canvas"></canvas>
+
+    <div class="scores">
+        <div class="score">
+            <span class="text">Score</span>
+            <span class="count">0</span>
+        </div>
+        <div class="score">
+            <span class="text">Best</span>
+            <span class="count">0</span>
+        </div>
+    </div>
     <script src="script.js" type="module"></script>
 </body>
 </html>
