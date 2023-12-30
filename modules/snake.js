@@ -51,14 +51,9 @@ export default class Snake {
         context.fillStyle = this.color;
         context.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
         context.fill();
+        context.closePath();
 
-        // Draw body
-        /* for (let i = 0; i < this.length; i++) {
-            context.beginPath();
-            context.fillStyle = 'blue';
-            context.arc(this.x - this.radius, this.y, this.radius, 0, Math.PI * 2);
-            context.fill();
-        } */
+        // TODO: Draw body
     }
 
     render(context) {
