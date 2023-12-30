@@ -10,26 +10,34 @@ document.addEventListener('DOMContentLoaded', () => {
 	/** @type {CanvasRenderingContext2D} */
 	const ctx = canvas.getContext('2d');
 	
-	
-	
-	let snake = new Snake();
-	let food = new Food();
+
+	const snake = new Snake();
+
+
+	let foods = [];
 	let effects = [];
+
+	// Generate food
+	for (let i = 0; i <= globals.FOOD_COUNT; i++) {
+		foods.push(new Food());
+	};
 	
 	const animate = () => {
-		ctx.fillStyle = 'skyblue';
+		ctx.fillStyle = "rgba(135, 206, 235, 0.3)";
 		ctx.fillRect(0, 0, canvas.width, canvas.height);
 		
 		snake.render(ctx);
-		food.render(ctx);
+		foods.forEach(food => food.render(ctx));
 		
 		
 		// Collision
-		let dist = Math.hypot((snake.x - food.x), (snake.y - food.y));
-		if (dist <= snake.radius + food.radius) {
-			effects.push(new FoodEffect(food.x, food.y));
-			food.randomize_pos();
-		}
+		foods.forEach(food => {
+			let dist = Math.hypot((snake.x - food.x), (snake.y - food.y));
+			if (dist <= snake.radius + food.radius) {
+				effects.push(new FoodEffect(food.x, food.y));
+				food.randomize_pos();
+			}
+		});
 
 		effects.forEach(effect => effect.render(ctx));
 		effects = effects.filter(effect => !effect.marked_for_deletion);

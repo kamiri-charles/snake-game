@@ -8,7 +8,7 @@ export default class Snake {
         this.radius = 10;
         this.color = 'black';
         this.controls = new Controls();
-        this.speed = 5;
+        this.speed = globals.SPEED;
         this.velocity = {x: 0, y: 0};
 
         this.length = 1;
@@ -18,16 +18,19 @@ export default class Snake {
         this.x += this.velocity.x;
         this.y += this.velocity.y;
         // Movement
-        if (this.controls.up && this.velocity.y == 0) {
+        if (this.controls.up &&  this.velocity.y == 0) {
             this.velocity.x = 0;
             this.velocity.y = -this.speed;
-        } else if (this.controls.right && this.velocity.x == 0) {
+        }
+        if (this.controls.right && this.velocity.x == 0) {
             this.velocity.x = this.speed;
             this.velocity.y = 0;
-        } else if (this.controls.down && this.velocity.y == 0) {
+        }
+        if (this.controls.down && this.velocity.y == 0) {
             this.velocity.x = 0;
             this.velocity.y = this.speed;
-        } else if (this.controls.left && this.velocity.x == 0) {
+        }
+        if (this.controls.left && this.velocity.x == 0) {
             this.velocity.x = -this.speed;
             this.velocity.y = 0;
         };
