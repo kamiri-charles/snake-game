@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	};
 	
 	const animate = () => {
-		ctx.fillStyle = "rgba(135, 206, 235, 0.3)";
+		ctx.fillStyle = "rgba(135, 206, 235, 0.5)";
 		ctx.fillRect(0, 0, canvas.width, canvas.height);
 
 		if (running) {
@@ -43,6 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
 				if (dist <= snake.radius + food.radius) {
 					effects.push(new FoodEffect(food.x, food.y));
 					food.randomize_pos();
+					snake.length += 2;
 				}
 			});
 	
