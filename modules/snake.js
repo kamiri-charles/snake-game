@@ -23,19 +23,20 @@ export default class Snake {
 		if (this.controls.up && this.velocity.y == 0) {
 			this.velocity.x = 0;
 			this.velocity.y = -this.speed;
-		}
-		if (this.controls.right && this.velocity.x == 0) {
-			this.velocity.x = this.speed;
-			this.velocity.y = 0;
-		}
+		} 
 		if (this.controls.down && this.velocity.y == 0) {
 			this.velocity.x = 0;
 			this.velocity.y = this.speed;
 		}
+
+		if (this.controls.right && this.velocity.x == 0) {
+			this.velocity.x = this.speed;
+			this.velocity.y = 0;
+		} 
 		if (this.controls.left && this.velocity.x == 0) {
 			this.velocity.x = -this.speed;
 			this.velocity.y = 0;
-		}
+		};
 		
 		// Boundaries
 		if (this.x < 0) {
@@ -61,11 +62,12 @@ export default class Snake {
 	
 	draw(context) {
 		for (let i = 0; i < this.body.length; i++) {
-			const segmentSize = this.radius * (1 - i / this.body.length);
+			//const segmentSize = this.radius * (1 - i / this.body.length);
+
 			
 			context.beginPath();
 			context.fillStyle = this.color;
-			context.arc(this.body[i].x, this.body[i].y, segmentSize, 0, Math.PI * 2);
+			context.arc(this.body[i].x, this.body[i].y, this.radius, 0, Math.PI * 2);
 			context.fill();
 			context.closePath();
 		}
