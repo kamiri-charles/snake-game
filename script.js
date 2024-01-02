@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	/** @type {CanvasRenderingContext2D} */
 	const ctx = canvas.getContext('2d');
 	const menu = document.getElementById('menu');
+	const score_el = document.getElementById('score');
+	let score = 0;
 	let running = false;
 
 	document.addEventListener('keydown', evt => {
@@ -29,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	};
 	
 	const animate = () => {
-		ctx.fillStyle = "rgba(135, 206, 235, 0.5)";
+		ctx.fillStyle = "rgba(135, 206, 235, 1)";
 		ctx.fillRect(0, 0, canvas.width, canvas.height);
 
 		if (running) {
@@ -44,6 +46,8 @@ document.addEventListener('DOMContentLoaded', () => {
 					effects.push(new FoodEffect(food.x, food.y));
 					food.randomize_pos();
 					snake.length += 2;
+					score++;
+					score_el.innerText = score;
 				}
 			});
 	
