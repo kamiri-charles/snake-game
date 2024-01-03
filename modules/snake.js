@@ -10,6 +10,7 @@ export default class Snake {
 		this.controls = new Controls();
 		this.speed = globals.SPEED;
 		this.velocity = { x: 0, y: 0 };
+		this.head = {x: this.x, y: this.y};
 		this.body = [{ x: this.x, y: this.y }]; // Initial body with one segment
 		
 		this.length = 1;
@@ -21,12 +22,12 @@ export default class Snake {
 		
 		// Movement
 		if (this.controls.up && this.velocity.y == 0) {
-			this.velocity.x = 0;
 			this.velocity.y = -this.speed;
+			this.velocity.x = 0;
 		} 
 		if (this.controls.down && this.velocity.y == 0) {
-			this.velocity.x = 0;
 			this.velocity.y = this.speed;
+			this.velocity.x = 0;
 		}
 
 		if (this.controls.right && this.velocity.x == 0) {
@@ -37,6 +38,7 @@ export default class Snake {
 			this.velocity.x = -this.speed;
 			this.velocity.y = 0;
 		};
+
 		
 		// Boundaries
 		if (this.x < 0) {
@@ -52,6 +54,7 @@ export default class Snake {
 		}
 		
 		// Update body segments
+		this.head = { x: this.x, y: this.y };
 		this.body.unshift({ x: this.x, y: this.y });
 		
 		// If the snake has eaten food, increase length
@@ -61,17 +64,24 @@ export default class Snake {
 	}
 	
 	draw(context) {
-		for (let i = 0; i < this.body.length; i++) {
-			//const segmentSize = this.radius * (1 - i / this.body.length);
+    // Draw body
+    for (let i = 0; i < this.body.length; i++) {
+      //const segmentSize = this.radius * (1 - i / this.body.length);
 
-			
-			context.beginPath();
-			context.fillStyle = this.color;
-			context.arc(this.body[i].x, this.body[i].y, this.radius, 0, Math.PI * 2);
-			context.fill();
-			context.closePath();
-		}
-	}
+      context.beginPath();
+      context.fillStyle = this.color;
+      context.arc(this.body[i].x, this.body[i].y, this.radius, 0, Math.PI * 2);
+      context.fill();
+      context.closePath();
+    }
+
+    // Draw head
+    context.beginPath();
+    context.fillStyle = "red";
+    context.arc(this.head.x, this.head.y, this.radius, 0, Math.PI * 2);
+    context.fill();
+    context.closePath();
+  }
 	
 	render(context) {
 		this.update();
