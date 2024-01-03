@@ -13,7 +13,7 @@ export default class Snake {
 		this.head = {x: this.x, y: this.y};
 		this.body = [{ x: this.x, y: this.y }]; // Initial body with one segment
 		
-		this.length = 1;
+		this.length = 2; // Start width a length of 2
 	}
 	
 	update() {
@@ -25,15 +25,17 @@ export default class Snake {
 			this.velocity.y = -this.speed;
 			this.velocity.x = 0;
 		} 
-		if (this.controls.down && this.velocity.y == 0) {
-			this.velocity.y = this.speed;
-			this.velocity.x = 0;
-		}
 
 		if (this.controls.right && this.velocity.x == 0) {
 			this.velocity.x = this.speed;
 			this.velocity.y = 0;
 		} 
+
+		if (this.controls.down && this.velocity.y == 0) {
+			this.velocity.y = this.speed;
+			this.velocity.x = 0;
+		}
+
 		if (this.controls.left && this.velocity.x == 0) {
 			this.velocity.x = -this.speed;
 			this.velocity.y = 0;
