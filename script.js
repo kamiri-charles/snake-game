@@ -1,4 +1,4 @@
-import { globals }from "./modules/globals.js";
+import { globals }from "./globals.js";
 import Snake from "./modules/snake.js";
 import Food from "./modules/food.js";
 import FoodEffect from "./modules/effects.js";
@@ -49,8 +49,8 @@ document.addEventListener('DOMContentLoaded', () => {
 			foods.forEach(food => food.render({
 				context: ctx,
 				snake: snake,
-				blocks: level.blocks}
-			));
+				blocks: level.blocks
+			}));
 			
 			
 			// Collision

@@ -1,5 +1,5 @@
 import Block from "./block.js";
-import { globals } from "./globals.js";
+import { globals } from "../globals.js";
 
 export default class Level {
     constructor(number) {
@@ -31,8 +31,6 @@ export default class Level {
                 }
             };
         };
-
-        console.log(this.blocks);
     }
 
     render(context) {
