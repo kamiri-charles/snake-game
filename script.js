@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	const menu = document.getElementById('menu');
 	const score_el = document.getElementById('score');
 	let score = 0;
-	let running = true;
+	let running = false;
 
 
 	document.addEventListener('keydown', evt => {

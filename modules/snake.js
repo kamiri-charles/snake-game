@@ -6,14 +6,15 @@ export default class Snake {
 		this.x = globals.GAME_WIDTH * 0.5;
 		this.y = globals.GAME_HEIGHT * 0.5;
 		this.radius = 10;
-		this.color = "black";
+		this.head_color = 'black';
+		this.color = 'black';
 		this.controls = new Controls();
 		this.speed = globals.SPEED;
 		this.velocity = { x: 0, y: 0 };
 		this.head = {x: this.x, y: this.y};
 		this.body = [{ x: this.x, y: this.y }]; // Initial body with one segment
 		
-		this.length = 2; // Start with a length of 2
+		this.length = 500; // Starting length
 	}
 	
 	update() {
@@ -68,18 +69,18 @@ export default class Snake {
 	draw(context) {
     // Draw body
     for (let i = 0; i < this.body.length; i++) {
-      //const segmentSize = this.radius * (1 - i / this.body.length);
+      const segment_size = this.radius * (1 - i / this.body.length);
 
       context.beginPath();
       context.fillStyle = this.color;
-      context.arc(this.body[i].x, this.body[i].y, this.radius, 0, Math.PI * 2);
+      context.arc(this.body[i].x, this.body[i].y, segment_size, 0, Math.PI * 2);
       context.fill();
       context.closePath();
     }
 
     // Draw head
     context.beginPath();
-    context.fillStyle = "red";
+    context.fillStyle = this.head_color;
     context.arc(this.head.x, this.head.y, this.radius, 0, Math.PI * 2);
     context.fill();
     context.closePath();
