@@ -40,4 +40,4 @@ export default class Level {
 
         //this.blocks.forEach(block => block.render(context));
     }
-}
+};

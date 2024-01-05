@@ -46,7 +46,11 @@ document.addEventListener('DOMContentLoaded', () => {
 			menu.style.display = "none";
 			level.render(ctx);
 			snake.render(ctx);
-			foods.forEach(food => food.render(ctx));
+			foods.forEach(food => food.render({
+				context: ctx,
+				snake: snake,
+				blocks: level.blocks}
+			));
 			
 			
 			// Collision

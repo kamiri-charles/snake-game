@@ -14,7 +14,7 @@ export default class Snake {
 		this.head = {x: this.x, y: this.y};
 		this.body = [{ x: this.x, y: this.y }]; // Initial body with one segment
 		
-		this.length = 500; // Starting length
+		this.length = 5; // Starting length
 	}
 	
 	update() {
@@ -67,24 +67,24 @@ export default class Snake {
 	}
 	
 	draw(context) {
-    // Draw body
-    for (let i = 0; i < this.body.length; i++) {
-      const segment_size = this.radius * (1 - i / this.body.length);
+		// Draw body
+		for (let i = 0; i < this.body.length; i++) {
+		const segment_size = this.radius * (1 - i / this.body.length);
 
-      context.beginPath();
-      context.fillStyle = this.color;
-      context.arc(this.body[i].x, this.body[i].y, segment_size, 0, Math.PI * 2);
-      context.fill();
-      context.closePath();
-    }
+		context.beginPath();
+		context.fillStyle = this.color;
+		context.arc(this.body[i].x, this.body[i].y, segment_size, 0, Math.PI * 2);
+		context.fill();
+		context.closePath();
+		}
 
-    // Draw head
-    context.beginPath();
-    context.fillStyle = this.head_color;
-    context.arc(this.head.x, this.head.y, this.radius, 0, Math.PI * 2);
-    context.fill();
-    context.closePath();
-  }
+		// Draw head
+		context.beginPath();
+		context.fillStyle = this.head_color;
+		context.arc(this.head.x, this.head.y, this.radius, 0, Math.PI * 2);
+		context.fill();
+		context.closePath();
+  	}
 	
 	render(context) {
 		this.update();

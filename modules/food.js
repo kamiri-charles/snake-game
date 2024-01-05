@@ -32,7 +32,7 @@ export default class Food {
         this.image.src = `../assets/${this.type}.png`;
     }
     
-    render(context) {
+    render({context, snake, blocks}) {
 
         this.frame += this.frame_offset;
 
@@ -47,11 +47,5 @@ export default class Food {
             this.x - this.radius - 6, this.y - this.radius - 5,
             this.size, this.size
             );
-            
-            /* context.beginPath();
-            context.strokeStyle = 'black';
-            context.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-            context.stroke(); */
-
     }
 };

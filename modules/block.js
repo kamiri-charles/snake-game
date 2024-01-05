@@ -12,4 +12,4 @@ export default class Block {
         context.fillStyle = 'rgba(255, 0, 0, 0.5)';
         context.fillRect(this.x, this.y, this.size, this.size);
     }
-}
+};
