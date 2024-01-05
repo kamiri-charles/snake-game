@@ -13,7 +13,7 @@ export default class Snake {
 		this.head = {x: this.x, y: this.y};
 		this.body = [{ x: this.x, y: this.y }]; // Initial body with one segment
 		
-		this.length = 2; // Start width a length of 2
+		this.length = 2; // Start with a length of 2
 	}
 	
 	update() {

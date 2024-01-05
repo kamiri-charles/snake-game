@@ -3,6 +3,7 @@ import Snake from "./modules/snake.js";
 import Food from "./modules/food.js";
 import FoodEffect from "./modules/effects.js";
 import Level from "./modules/level.js";
+import { level_data } from "./levels/level_1/data.js";
 
 document.addEventListener('DOMContentLoaded', () => {
 	const canvas = document.getElementById('canvas');
@@ -13,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	const menu = document.getElementById('menu');
 	const score_el = document.getElementById('score');
 	let score = 0;
-	let running = false;
+	let running = true;
 
 
 	document.addEventListener('keydown', evt => {
@@ -25,9 +26,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 	const level = new Level(1)
+	level.load(level_data);
 	const snake = new Snake();
 	let foods = [];
 	let effects = [];
+
 
 	// Generate food
 	for (let i = 0; i <= globals.FOOD_COUNT; i++) {
@@ -40,6 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 		if (running) {
+			menu.style.display = "none";
 			level.render(ctx);
 			snake.render(ctx);
 			foods.forEach(food => food.render(ctx));
